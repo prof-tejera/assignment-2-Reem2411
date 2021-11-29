@@ -26,7 +26,7 @@ const Countdown = () => {
   useInterval(() => {
     if (time !== 0 && running === true ){
       decrement(time, userInput, timerType);
-    } else if (time === 0 && userInput !== 0 && running === true ){
+    } else if (time === 0 && running === true ){
       setDone(true);
       setRunning(false);
     }else {
