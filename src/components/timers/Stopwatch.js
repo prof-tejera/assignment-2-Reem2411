@@ -19,18 +19,18 @@ const Stopwatch = () => {
   }, [timerType, setTimerType, stopwatch]);
 
   useInterval(() => {
-    if (time <= userInput && running === true){
+    if (time < userInput && running === true){
       handleDisplayTime(time, timerType);
       setTime(time + 1);
-    } else if (time === userInput && userInput !== 0 && running === true ){
+    } else if (time === userInput && running === true ){
       setDone(true);
       setRunning(false);
     }else {
       setRunning(false);
     }
   }, 1000);   
-  
 
+  
   return (
       
       <TimerPanel
