@@ -10,7 +10,7 @@ import './Timers.css'
 const Tabata = () => {
   
     // Get states and variables needed
-    const {time, running, nRounds, currRound, setTimerType, restTime, setCurrRound, 
+    const {time, running, nRounds, currRound, setTimerType, restTime, setCurrRound,
       setTime, decrement, handleRounds, userInput, timerType, setRest, restInput, setRestTime} = useContext(TimerContext);
     const {tabata} = vars;
   
@@ -18,18 +18,16 @@ const Tabata = () => {
     setTimerType(tabata);
     setTime(userInput);
     setRestTime(restInput);
-    // setRest(false);
-  }, [timerType, setTime, setTimerType, userInput, tabata, setRestTime, restInput, setRest]);
-
+  },[]);
+// setRestTime, restInput, setTime, userInput, setTimerType, tabata
   useInterval(() => {
      if (time !== 0 && running === true){
-      decrement(time, userInput, timerType);
+      decrement(time, timerType, false);
     } else if (restTime !== 0 && running === true){
       setRest(true);
-      decrement(restTime, restInput, timerType);
-      setRest(false);
+      decrement(restTime, timerType, true);
     } else if (time === 0 && running === true){
-      handleRounds(currRound, nRounds); // 1, 2
+      handleRounds(currRound, nRounds); 
       if (currRound !== nRounds){
         setCurrRound(currRound+1);
       }  

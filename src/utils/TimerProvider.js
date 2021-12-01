@@ -22,8 +22,8 @@ const TimerProvider = ({ children }) => {
   const [ rest, setRest ] = useState(false); 
 
   // Decrementing 
-  const decrement = (time, userInput, timerType) => {
-    handleDisplayTime(time, userInput, timerType);
+  const decrement = (time, userInput, rest) => {
+    handleDisplayTime(time, userInput, rest);
     if(timerType === tabata && rest === true){
       setRestTime(time-1);
     } else if (rest === false ) {
@@ -31,7 +31,7 @@ const TimerProvider = ({ children }) => {
     }
   }
 
-  const handleDisplayTime = (time, timerType, userInput) => {
+  const handleDisplayTime = (time, timerType, rest) => {
     const timeHMS = secondsToTime(time ? time : 0)
     setShowingTimer(timeHMS);
     if(timerType === tabata && rest === true){
@@ -73,6 +73,7 @@ const TimerProvider = ({ children }) => {
   const handleRounds = (currRound, nRounds) => {
     if (currRound < nRounds){
       setTime(userInput);
+      setRestTime(restInput);
     } else {
       setDone(true);
       setRunning(false);
