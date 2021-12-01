@@ -1,0 +1,25 @@
+.Default-button {
+    position:relative;
+    color: rgb(48, 76, 141);
+    background-color: white;
+    padding: 15px 15px;
+    text-align: center;
+    justify-content: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 6px;
+    cursor: pointer;
+    border-radius: 10%;
+    width: 100px;
+  }
+
+.Default-button:hover {
+  color: white;
+  background-color: rgb(48, 76, 141);
+  border: 2px solid white;
+}
+
+.Default-button.list{
+  width: 150px;
+  border-radius:22px;
+}
